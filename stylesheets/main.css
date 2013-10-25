@@ -1,0 +1,49 @@
+* {
+	box-sizing: border-box;
+}
+body {
+	text-align: center;
+	font-family: sans-serif;
+	background: #333 url('../images/fabric_plaid.png') repeat center;
+}
+h1 {
+	font-family: 'Sonsie One', cursive;
+}
+.myAgendaList {
+	overflow: auto;
+}
+.infinite-agenda li {
+	background-color: white;
+	width:100%;
+	height:150px;
+	display:block;
+	margin-bottom: 20px;
+	padding:20px;
+}
+a:hover{
+	color: indigo;
+	text-decoration: none;
+}
+.date {
+	color: mediumvioletred;
+	font-weight: bolder;
+}
+.plus-btn {
+	margin: 10px;
+	padding: 0px 5px;
+}
+input {
+	border: none;
+}
+
+.submitItem {
+	background-color: mediumseagreen;
+	padding: 0px 5px;
+}
+.cancelItem {
+	background-color: mediumvioletred ;
+	padding: 0px 5px;
+}
+.time {
+	float: left;
+}
