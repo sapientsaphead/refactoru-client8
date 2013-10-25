@@ -1,24 +1,6 @@
 ## Infinite Agenda
+
 #### An infinite-scroll agenda which uses delegated events to handle events on agenda items even as new ones are added.
-
-#### Live site: [http://codepalette.com/refactoru-client8-agendanator](http://codepalette.com/refactoru-client8-agendanator)
-
-##### A project by Joanne, [Yalcin](https://github.com/yalcindo), and [Raphael](https://github.com/rserota)
-
-```
-         _          __________                              _,
-     _.-(_)._     ."          ".      .--""--.          _.-{__}-._
-   .'________'.   | .--------. |    .'        '.      .:-'`____`'-:.
-  [____________] /` |________| `\  /   .'``'.   \    /_.-"`_  _`"-._\
-  /  / .\/. \  \|  / / .\/. \ \  ||  .'/.\/.\'.  |  /`   / .\/. \   `\
-  |  \__/\__/  |\_/  \__/\__/  \_/|  : |_/\_| ;  |  |    \__/\__/    |
-  \            /  \            /   \ '.\    /.' / .-\                >/-.
-  /'._  --  _.'\  /'._  --  _.'\   /'. `'--'` .'\/   '._-.__--__.-_.'
-\/_   `""""`   _\/_   `""""`   _\ /_  `-./\.-'  _\'.    `""""""""`'`\
-(__/    '|    \ _)_|           |_)_/            \__)|        '
-  |_____'|_____|   \__________/|;                  `_________'________`;-'
-   '----------'    '----------'   '--------------'`--------------------`
-```
 
 ##### Skills
 * DOM
