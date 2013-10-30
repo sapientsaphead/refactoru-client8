@@ -1,5 +1,7 @@
 $(document).ready(function() {
-	
+//turn to inline mode
+$.fn.editable.defaults.mode = 'inline';
+
 //HTML Rendering
 
 	var nextday = 0;
@@ -49,8 +51,8 @@ $(document).ready(function() {
 
 	var createNewItem = function(i, counter) {
 		var newItem = $('<div class="newAppt"></div>');
-		var divTime = $('<div class="time" data-time=' + counter +'></div>');
-		var divTitle = $('<div class="title" data-title=' + counter + '></div>');
+		var divTime = $('<div class="newTime"><a href="#" class="time editable editable-click" data-type="text" data-pk=' + counter +' data-time=' + counter +'></a></div>');
+		var divTitle = $('<div class="newTitle"><a href="#" class="title editable editable-click" data-pk=' + counter +' data-title=' + counter + '></a></div>');
 
 		$('li[data='+i+']').find('.divNewItem').append(newItem);
 		newItem.append(divTime,divTitle);
@@ -71,7 +73,7 @@ $(document).ready(function() {
 		}
 	});
 
-	// Click on date or + button to see in-line text editing
+	// Click on date or + button to add an appt
 	$(document).on('click','.addItem',function(){
 		var i = parseInt($(this).parent().parent().attr('data'));
 		createAddItemBox(i);
@@ -83,16 +85,15 @@ $(document).ready(function() {
 	$(document).on('click', '.submitItem',function(e){
 		e.preventDefault();
 		counter++
-		var day = $('li[data='+i +']');
-
 		var i = ($(this).parent().parent().attr('data'));
+		var day = $('li[data='+i +']');
 		createNewItem(i, counter);
 
 		var time = day.find('.agendaTime').val();
 		var title = day.find('.agendaTitle').val();
 
-		day.find('div[data-time='+ counter +']').append(time);
-		day.find('div[data-title='+ counter +']').append(title);
+		day.find('a[data-time='+ counter +']').append(time);
+		day.find('a[data-title='+ counter +']').append(title);
 
 		// empty addItem div
 		day.find('.divAddItem').empty();
@@ -104,7 +105,21 @@ $(document).ready(function() {
 		$('li[data='+i +']').find('.divAddItem').empty();
 	});
 
-
+	// X-Editable
+	$(document).on('click', '.newAppt',function(){
+		var i = ($(this).closest('li').attr('data'));
+		console.log("i", i);
+		$('a[data-time='+i+']').editable({
+			success: function(response, newValue){
+				userModel.set('username', newValue); //update backbone model
+			}
+		});
+		$('a[data-title='+i+']').editable({
+			// success: function(response, newValue){
+			// 	userModel.set('username', newValue); //update backbone model
+			// }
+		});
+	});
 
 
 //MAIN
